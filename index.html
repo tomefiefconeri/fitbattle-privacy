@@ -5,522 +5,429 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutzerklärung – FitBattle</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --green: #00C896;
-      --green-dim: rgba(0,200,150,0.12);
-      --bg: #0D1117;
-      --bg2: #161B22;
-      --bg3: #1C2128;
-      --border: rgba(255,255,255,0.07);
-      --text: #E6EDF3;
-      --muted: #8B949E;
-      --accent: #00C896;
+      --green:     #00C896;
+      --green-dim: rgba(0,200,150,0.09);
+      --green-b:   rgba(0,200,150,0.20);
+      --bg:        #0B0F14;
+      --bg2:       #131920;
+      --bg3:       #1A2230;
+      --border:    rgba(255,255,255,0.06);
+      --text:      #D8E4EE;
+      --muted:     #6E8096;
+      --red:       #FF6B6B;
+      --orange:    #FFB347;
+      --yellow:    #FFD166;
     }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.82; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.75;
-      min-height: 100vh;
-    }
+    /* HEADER */
+    header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 3rem; text-align: center; position: relative; overflow: hidden; }
+    header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 100% at 50% -5%, rgba(0,200,150,0.09) 0%, transparent 60%); pointer-events: none; }
+    .badge { display: inline-flex; align-items: center; gap: 9px; background: var(--green-dim); border: 1px solid var(--green-b); border-radius: 99px; padding: 5px 16px 5px 8px; margin-bottom: 1.5rem; font-size: 12px; font-weight: 600; color: var(--green); letter-spacing: 0.04em; text-transform: uppercase; }
+    .badge .ico { width: 26px; height: 26px; background: var(--green); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+    h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 0.85rem; background: linear-gradient(135deg, #fff 0%, #9abccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hsub { color: var(--muted); font-size: 14px; max-width: 480px; margin: 0 auto 1.5rem; }
+    .hpills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .hp { display: inline-flex; align-items: center; gap: 5px; background: var(--bg3); border: 1px solid var(--border); border-radius: 99px; padding: 3px 11px; font-size: 12px; color: var(--muted); }
+    .hp span { color: var(--text); font-weight: 500; }
 
-    /* ── HEADER ── */
-    header {
-      background: var(--bg2);
-      border-bottom: 1px solid var(--border);
-      padding: 3rem 2rem 2.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(0,200,150,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .app-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--green-dim);
-      border: 1px solid rgba(0,200,150,0.3);
-      border-radius: 99px;
-      padding: 6px 16px 6px 10px;
-      margin-bottom: 1.25rem;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--green);
-    }
-    .app-badge .icon {
-      width: 26px; height: 26px;
-      background: var(--green);
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
-    }
-    h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .effective-date {
-      display: inline-block;
-      margin-top: 1rem;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 6px 14px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .effective-date strong { color: var(--text); }
+    /* LAYOUT */
+    .wrap { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.5rem 6rem; }
 
-    /* ── LAYOUT ── */
-    .container {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 3rem 2rem 5rem;
-    }
+    /* BANNERS */
+    .notice-y { background: linear-gradient(135deg, rgba(255,209,102,0.07), rgba(255,209,102,0.03)); border: 1px solid rgba(255,209,102,0.22); border-radius: 12px; padding: 1.1rem 1.4rem; margin: 2rem 0 2.5rem; display: flex; gap: 0.9rem; align-items: flex-start; font-size: 13.5px; color: #c8b882; line-height: 1.65; }
+    .notice-r { background: rgba(255,107,107,0.06); border: 1px solid rgba(255,107,107,0.22); border-radius: 10px; padding: 1rem 1.25rem; margin: 0.75rem 0; }
+    .notice-r p { font-size: 13.5px; color: #e0a8a8; margin: 0; }
 
-    /* ── TOC ── */
-    .toc {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 3rem;
-    }
-    .toc-title {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-    .toc ol {
-      list-style: none;
-      counter-reset: toc;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px 1.5rem;
-    }
-    @media (max-width: 540px) { .toc ol { grid-template-columns: 1fr; } }
-    .toc li {
-      counter-increment: toc;
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      font-size: 13.5px;
-    }
-    .toc li::before {
-      content: counter(toc, decimal-leading-zero);
-      font-size: 11px;
-      color: var(--green);
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-    .toc a {
-      color: var(--text);
-      text-decoration: none;
-      opacity: 0.75;
-      transition: opacity 0.15s;
-    }
-    .toc a:hover { opacity: 1; color: var(--green); }
+    /* TOC */
+    nav.toc { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.75rem 1.75rem; margin-bottom: 3rem; }
+    .toc-lbl { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); font-weight: 700; margin-bottom: 1rem; }
+    nav.toc ol { list-style: none; columns: 2; column-gap: 2rem; }
+    nav.toc li { margin-bottom: 0.3rem; break-inside: avoid; }
+    nav.toc a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color 0.15s; }
+    nav.toc a:hover { color: var(--green); }
+    nav.toc li::before { content: attr(data-n) '. '; color: var(--green); font-weight: 700; font-size: 11.5px; }
+    @media (max-width: 560px) { nav.toc ol { columns: 1; } }
 
-    /* ── SECTIONS ── */
-    section {
-      margin-bottom: 2.5rem;
-      scroll-margin-top: 2rem;
-    }
-    h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--text);
-      margin-bottom: 0.9rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    h2 .num {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--green);
-      background: var(--green-dim);
-      padding: 3px 8px;
-      border-radius: 6px;
-      letter-spacing: 0.05em;
-    }
-    p { color: #C9D1D9; margin-bottom: 0.75rem; }
+    /* SECTIONS */
+    section { margin-bottom: 3.25rem; padding-bottom: 3.25rem; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-family: 'Fraunces', serif; font-size: 1.42rem; font-weight: 500; color: #fff; margin-bottom: 1.25rem; display: flex; align-items: baseline; gap: 0.65rem; line-height: 1.25; }
+    .sn { font-size: 10.5px; font-weight: 700; font-family: 'DM Sans', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); background: var(--green-dim); border: 1px solid var(--green-b); border-radius: 5px; padding: 2px 7px; flex-shrink: 0; }
+    h3 { font-size: 11px; font-weight: 700; font-family: 'DM Sans', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 1.75rem 0 0.6rem; }
+    p { margin-bottom: 0.9rem; color: #aec0d0; }
     p:last-child { margin-bottom: 0; }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--text); font-weight: 600; }
+    code { font-family: 'Courier New', monospace; font-size: 12px; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; color: var(--green); }
 
-    /* ── HIGHLIGHT BOX ── */
-    .highlight {
-      background: var(--green-dim);
-      border: 1px solid rgba(0,200,150,0.25);
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      margin: 1rem 0;
-      font-size: 14px;
-      color: var(--text);
-    }
-    .highlight strong { color: var(--green); }
+    /* BOXES */
+    .box { background: var(--bg2); border: 1px solid var(--border); border-radius: 11px; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+    .box p { margin: 0; font-size: 13.5px; }
+    .box.g { background: var(--green-dim); border-color: var(--green-b); }
 
-    /* ── DATA TABLE ── */
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: 14px;
-    }
-    .data-table th {
-      text-align: left;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--muted);
-      padding: 8px 12px;
-      border-bottom: 1px solid var(--border);
-    }
-    .data-table td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border);
-      color: #C9D1D9;
-      vertical-align: top;
-    }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:hover td { background: rgba(255,255,255,0.02); }
-    .pill {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      padding: 2px 8px;
-      border-radius: 99px;
-    }
-    .pill-yes { background: rgba(0,200,150,0.15); color: var(--green); }
-    .pill-opt { background: rgba(255,165,0,0.12); color: #FFA500; }
+    /* RECHTSGRUNDLAGE BADGE */
+    .rg { display: inline-flex; align-items: center; background: rgba(0,200,150,0.08); border: 1px solid var(--green-b); border-radius: 5px; padding: 1px 7px; font-size: 11px; font-weight: 600; color: var(--green); font-family: 'DM Sans', sans-serif; vertical-align: middle; margin-left: 4px; white-space: nowrap; }
 
-    /* ── THIRD PARTY LIST ── */
-    .provider-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin: 1rem 0;
-    }
-    .provider-list li {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .provider-list li::before {
-      content: '↗';
-      color: var(--green);
-      font-size: 13px;
-      flex-shrink: 0;
-    }
-    .provider-list a {
-      color: var(--green);
-      text-decoration: none;
-    }
-    .provider-list a:hover { text-decoration: underline; }
-    .provider-list .pname { color: var(--text); font-weight: 500; }
+    /* TABLES */
+    .dt { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 13px; }
+    .dt th { background: var(--bg3); color: var(--muted); text-align: left; padding: 8px 11px; font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid var(--border); }
+    .dt td { padding: 9px 11px; border-bottom: 1px solid var(--border); color: #a8bccf; vertical-align: top; }
+    .dt tr:last-child td { border-bottom: none; }
+    .dt tr:hover td { background: rgba(255,255,255,0.012); }
+    .dt td:first-child { color: var(--text); font-weight: 500; }
 
-    /* ── UL ── */
-    ul.plain {
-      list-style: none;
-      margin: 0.75rem 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    ul.plain li {
-      padding-left: 1.25rem;
-      position: relative;
-      font-size: 14.5px;
-      color: #C9D1D9;
-    }
-    ul.plain li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--green);
-      font-weight: 700;
-    }
+    /* PILLS */
+    .pill { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 11px; font-weight: 600; letter-spacing: 0.03em; }
+    .pr { background: rgba(255,107,107,0.11); color: #ff9999; border: 1px solid rgba(255,107,107,0.25); }
+    .po { background: rgba(255,179,71,0.09); color: #ffc96b; border: 1px solid rgba(255,179,71,0.25); }
+    .pn { background: rgba(0,200,150,0.09); color: var(--green); border: 1px solid var(--green-b); }
 
-    /* ── CONTACT CARD ── */
-    .contact-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .contact-avatar {
-      width: 44px; height: 44px;
-      background: var(--green-dim);
-      border: 1px solid rgba(0,200,150,0.3);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-    .contact-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-    .contact-card a { color: var(--green); font-size: 14px; text-decoration: none; }
-    .contact-card a:hover { text-decoration: underline; }
+    /* PROVIDER LIST */
+    .plist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 1rem 0; }
+    .plist li { display: flex; align-items: flex-start; gap: 10px; background: var(--bg2); border: 1px solid var(--border); border-radius: 11px; padding: 1rem 1.2rem; }
+    .arr { color: var(--green); font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+    .pname { color: var(--text); font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 3px; }
+    .pdesc { font-size: 12.5px; color: var(--muted); margin: 2px 0 4px; }
+    .plaw { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 4px; }
+    .flag { font-size: 11px; color: var(--orange); background: rgba(255,179,71,0.08); border: 1px solid rgba(255,179,71,0.2); border-radius: 4px; padding: 1px 6px; }
+    .dpf-yes { font-size: 11px; color: var(--green); background: var(--green-dim); border: 1px solid var(--green-b); border-radius: 4px; padding: 1px 6px; }
+    .dpf-no { font-size: 11px; color: var(--orange); background: rgba(255,179,71,0.08); border: 1px solid rgba(255,179,71,0.2); border-radius: 4px; padding: 1px 6px; }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-    }
+    /* RIGHTS GRID */
+    .rg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 9px; margin: 1rem 0; }
+    .rc { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; }
+    .rt { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+    .ra { font-size: 10.5px; color: var(--green); font-weight: 700; }
+    .rc p { font-size: 12.5px; color: var(--muted); margin: 0; }
+
+    /* CONTACT */
+    .ccard { background: var(--bg2); border: 1px solid var(--green-b); border-radius: 13px; padding: 1.4rem 1.6rem; display: flex; align-items: center; gap: 1.1rem; margin: 1rem 0; }
+    .cav { width: 48px; height: 48px; background: var(--green-dim); border: 2px solid var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .ccard h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .ccard .role { font-size: 12px; color: var(--muted); margin-bottom: 5px; }
+
+    /* PLAIN LIST */
+    ul.pl { list-style: none; margin: 0.75rem 0; display: flex; flex-direction: column; gap: 5px; }
+    ul.pl li { padding-left: 1.25rem; position: relative; font-size: 14px; color: #a8bccf; }
+    ul.pl li::before { content: '—'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2rem 1rem 3rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 12.5px; line-height: 1.9; }
     footer strong { color: var(--text); }
+    .disc { margin-top: 1rem; font-size: 11.5px; font-style: italic; color: #3a4a5a; max-width: 620px; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="app-badge">
-    <span class="icon">⚔️</span>
-    FitBattle · com.baumann.fitbattle
-  </div>
+  <div class="badge"><span class="ico">⚔️</span>FitBattle &nbsp;·&nbsp; com.baumann.fitbattle</div>
   <h1>Datenschutzerklärung</h1>
-  <p class="subtitle">Entwickelt von Tom Baumann · Kostenlose App</p>
-  <div class="effective-date">Gültig ab: <strong>22. Mai 2026</strong></div>
+  <p class="hsub">Pflichtinformationen gemäß Art. 13 &amp; 14 DSGVO · Rechtsstand: DSGVO · BDSG · DDG · TDDDG</p>
+  <div class="hpills">
+    <div class="hp">Stand: <span>29. Mai 2026</span></div>
+    <div class="hp">Plattform: <span>Android (Google Play)</span></div>
+    <div class="hp">Gesetz: <span>DSGVO · BDSG · DDG · TDDDG</span></div>
+  </div>
 </header>
 
-<div class="container">
+<div class="wrap">
 
-  <!-- TOC -->
+  <div class="notice-y">
+    <div style="font-size:18px;flex-shrink:0;">⚠️</div>
+    <div><strong>Rechtlicher Hinweis:</strong> Diese Datenschutzerklärung wurde auf Basis der zum 29. Mai 2026 geltenden Rechtslage (DSGVO, BDSG, DDG, TDDDG) erstellt. Sie ersetzt keine individuelle Rechtsberatung durch einen zugelassenen Anwalt. Vor dem öffentlichen Release im Play Store wird eine anwaltliche Abschlussüberprüfung empfohlen.</div>
+  </div>
+
   <nav class="toc" aria-label="Inhaltsverzeichnis">
-    <div class="toc-title">Inhaltsverzeichnis</div>
+    <div class="toc-lbl">Inhaltsverzeichnis</div>
     <ol>
-      <li><a href="#s1">Welche Daten werden erhoben?</a></li>
-      <li><a href="#s2">Automatisch erfasste Daten</a></li>
-      <li><a href="#s3">Kamera & Fotos</a></li>
-      <li><a href="#s4">Drittanbieter</a></li>
-      <li><a href="#s5">Datenweitergabe</a></li>
-      <li><a href="#s6">Standortdaten</a></li>
-      <li><a href="#s7">Künstliche Intelligenz</a></li>
-      <li><a href="#s8">Datenspeicherung</a></li>
-      <li><a href="#s9">Kinderschutz</a></li>
-      <li><a href="#s10">Sicherheit</a></li>
-      <li><a href="#s11">Änderungen</a></li>
-      <li><a href="#s12">Kontakt</a></li>
+      <li data-n="1"><a href="#s1">Verantwortlicher &amp; Anbieterkennzeichnung</a></li>
+      <li data-n="2"><a href="#s2">Erhobene personenbezogene Daten</a></li>
+      <li data-n="3"><a href="#s3">Zwecke &amp; Rechtsgrundlagen</a></li>
+      <li data-n="4"><a href="#s4">Auftragsverarbeiter &amp; Drittanbieter</a></li>
+      <li data-n="5"><a href="#s5">Drittlandtransfers USA</a></li>
+      <li data-n="6"><a href="#s6">Speicherdauer &amp; Löschung</a></li>
+      <li data-n="7"><a href="#s7">Deine Rechte als betroffene Person</a></li>
+      <li data-n="8"><a href="#s8">Technische &amp; org. Maßnahmen (TOM)</a></li>
+      <li data-n="9"><a href="#s9">Push-Benachrichtigungen</a></li>
+      <li data-n="10"><a href="#s10">Kamera &amp; Fotos</a></li>
+      <li data-n="11"><a href="#s11">Automatisierte Entscheidungen &amp; Profiling</a></li>
+      <li data-n="12"><a href="#s12">Kinder- und Jugendschutz</a></li>
+      <li data-n="13"><a href="#s13">Änderungen dieser Erklärung</a></li>
+      <li data-n="14"><a href="#s14">Kontakt, Beschwerderecht &amp; Aufsichtsbehörden</a></li>
     </ol>
   </nav>
 
-  <!-- 1 -->
+  <!-- 1 · VERANTWORTLICHER -->
   <section id="s1">
-    <h2><span class="num">01</span> Welche Daten werden erhoben und wie werden sie verwendet?</h2>
-    <p>Die App erhebt Daten, die du bei der Registrierung und Nutzung aktiv eingibst. Eine Registrierung ist nicht zwingend erforderlich — ohne Konto stehen jedoch bestimmte Funktionen (Gruppen, Challenges, Aktivitäts-Tracking) nicht zur Verfügung.</p>
+    <h2><span class="sn">01</span> Verantwortlicher &amp; Anbieterkennzeichnung</h2>
+    <p>Verantwortlicher im Sinne der DSGVO sowie Anbieter im Sinne des <strong>§ 5 DDG</strong> (Digitale-Dienste-Gesetz, in Kraft seit 14. Mai 2024, ersetzt § 5 TMG) ist:</p>
+    <div class="box" style="margin:1rem 0;">
+      <p style="font-size:14px;line-height:2.1;margin:0;">
+        <strong>Tom Baumann</strong><br>
+        <strong style="color:var(--red);">[STRAßE, HAUSNUMMER] ← Pflicht, vor Veröffentlichung eintragen</strong><br>
+        <strong style="color:var(--red);">[PLZ ORT] ← Pflicht, vor Veröffentlichung eintragen</strong><br>
+        Deutschland<br>
+        E-Mail: <a href="mailto:tobau7@gmail.com">tobau7@gmail.com</a>
+      </p>
+    </div>
+    <div class="notice-r">
+      <p><strong>⚠️ Vor Veröffentlichung zwingend erforderlich:</strong> Art. 13 Abs. 1 lit. a DSGVO und § 5 Abs. 1 DDG verlangen die vollständige, ladungsfähige Postanschrift. Eine E-Mail-Adresse allein ist nicht ausreichend und kann zu Abmahnungen führen. Wenn du deine Privatadresse nicht veröffentlichen möchtest, ist die Verwendung einer Geschäftsadresse (z. B. Co-Working-Space) möglich, sofern du dort tatsächlich erreichbar bist.</p>
+    </div>
+    <p>FitBattle wird als privates, nicht-kommerzielles Projekt betrieben. Eine Pflicht zur Bestellung eines Datenschutzbeauftragten nach § 38 BDSG besteht nicht, da weder ≥ 20 Personen ständig mit automatisierter Datenverarbeitung beschäftigt werden noch besondere Datenkategorien (Art. 9 DSGVO) umfangreich verarbeitet werden.</p>
+  </section>
 
-    <table class="data-table" aria-label="Übersicht der erhobenen Daten">
-      <thead>
-        <tr>
-          <th>Datenkategorie</th>
-          <th>Beispiele</th>
-          <th>Pflicht?</th>
-        </tr>
-      </thead>
+  <!-- 2 · DATEN -->
+  <section id="s2">
+    <h2><span class="sn">02</span> Erhobene personenbezogene Daten</h2>
+    <p>FitBattle erhebt ausschließlich Daten, die für den App-Betrieb und die Funktionen (Gruppen-Fitness-Challenges, Rangliste, Aktivitätsverfolgung) technisch erforderlich sind. Es werden keine Werbedaten erhoben, kein verhaltensbasiertes Tracking betrieben und keine Analytics-Tools eingesetzt.</p>
+
+    <table class="dt">
+      <thead><tr><th>Datenkategorie</th><th>Konkrete Daten</th><th>Speicherort</th><th>Pflicht?</th></tr></thead>
       <tbody>
-        <tr>
-          <td>Kontodaten</td>
-          <td>Benutzername, E-Mail-Adresse</td>
-          <td><span class="pill pill-yes">Ja</span></td>
-        </tr>
-        <tr>
-          <td>Aktivitätsdaten</td>
-          <td>Sportart, Dauer, Punkte, Beschreibung, Datum</td>
-          <td><span class="pill pill-yes">Ja</span></td>
-        </tr>
-        <tr>
-          <td>Gruppeninhalte</td>
-          <td>Gruppenname, Beschreibung, Mitgliedschaften, Einladungscodes</td>
-          <td><span class="pill pill-yes">Ja</span></td>
-        </tr>
-        <tr>
-          <td>Challenge-Daten</td>
-          <td>Challenges, Abstimmungen, Abschlüsse</td>
-          <td><span class="pill pill-yes">Ja</span></td>
-        </tr>
-        <tr>
-          <td>Profilbild / Avatar</td>
-          <td>Optionales Profilfoto</td>
-          <td><span class="pill pill-opt">Optional</span></td>
-        </tr>
-        <tr>
-          <td>Beweisfotos</td>
-          <td>Fotos zur Bestätigung abgeschlossener Challenges</td>
-          <td><span class="pill pill-opt">Optional</span></td>
-        </tr>
-        <tr>
-          <td>Geräte-Token</td>
-          <td>FCM-Push-Token für Benachrichtigungen</td>
-          <td><span class="pill pill-opt">Optional</span></td>
-        </tr>
+        <tr><td>Authentifizierung</td><td>E-Mail-Adresse, Passwort-Hash (bcrypt, nie Klartext)</td><td>Supabase Auth</td><td><span class="pill pr">Ja</span></td></tr>
+        <tr><td>Profildaten</td><td>Benutzername, Gesamtpunktestand</td><td>Supabase DB (profiles)</td><td><span class="pill pr">Ja</span></td></tr>
+        <tr><td>Aktivitätsdaten</td><td>Sportart, Dauer (Min.), Punkte, optionale Beschreibung, Zeitstempel</td><td>Supabase DB (activities)</td><td><span class="pill pr">Ja</span></td></tr>
+        <tr><td>Gruppeninhalte</td><td>Gruppenname, Beschreibung, Mitgliedschaftsstatus, Rolle (Member/Admin), Einladungscode, Gruppenregeln</td><td>Supabase DB (groups, group_members, group_points)</td><td><span class="pill pr">Ja</span></td></tr>
+        <tr><td>Challenge-Daten</td><td>Challenge-Titel und -Optionen, eigene Abstimmung, Abschlussstatus, Bonus-Punkte</td><td>Supabase DB (challenges, challenge_votes, challenge_completions)</td><td><span class="pill pr">Ja</span></td></tr>
+        <tr><td>Profilbild</td><td>Vom Nutzer hochgeladenes Foto (avatars/{userId}.jpg)</td><td>Supabase Storage (avatars)</td><td><span class="pill po">Optional</span></td></tr>
+        <tr><td>Aktivitäts- &amp; Beweisfotos</td><td>Fotos zu Aktivitäten und als Challenge-Nachweis (challenge_proofs/)</td><td>Supabase Storage (activity-images)</td><td><span class="pill po">Optional</span></td></tr>
+        <tr><td>Push-Token (FCM)</td><td>Anonymer Firebase-Cloud-Messaging-Token für Push-Benachrichtigungen</td><td>Supabase DB (device_tokens)</td><td><span class="pill po">Optional</span></td></tr>
+        <tr><td>Technische Verbindungsdaten</td><td>IP-Adresse (bei Verbindungsaufbau), Gerätetyp, Betriebssystemversion — verarbeitet durch Infrastrukturanbieter</td><td>Supabase / Google-Server (temporär)</td><td><span class="pill pr">Ja</span></td></tr>
+        <tr><td>Spracheinstellung</td><td>Gewählte App-Sprache (SharedPreferences)</td><td>Nur lokal auf Gerät — kein Server</td><td><span class="pill pn">Nur lokal</span></td></tr>
       </tbody>
     </table>
 
-    <p>Diese Daten werden genutzt, um die App-Funktionen bereitzustellen, die Rangliste zu berechnen und dich bei relevanten Ereignissen (z. B. wenn du überholt wirst oder eine neue Challenge verfügbar ist) per Push-Benachrichtigung zu informieren.</p>
+    <div class="box g">
+      <p><strong>Was FitBattle nicht erhebt:</strong> GPS- oder Echtzeit-Standortdaten · Zahlungs- oder Bankdaten · Gesundheitsdaten nach Art. 9 DSGVO · Kontaktlisten · Browser-Verlauf · Werbedaten oder Nutzerprofile für Dritte · Daten aus sozialen Netzwerken · KI-generierte Auswertungen deiner Daten.</p>
+    </div>
   </section>
 
-  <!-- 2 -->
-  <section id="s2">
-    <h2><span class="num">02</span> Automatisch erfasste Daten</h2>
-    <p>Die App kann zusätzlich folgende technische Informationen automatisch erfassen:</p>
-    <ul class="plain">
-      <li>Gerätetyp und Betriebssystemversion</li>
-      <li>Eindeutige Geräte-ID</li>
-      <li>IP-Adresse</li>
-      <li>Verwendeter Browsertyp (bei Web-Zugriffen)</li>
-      <li>Art und Weise der App-Nutzung (z. B. aufgerufene Screens)</li>
-    </ul>
-    <p>Diese Daten dienen ausschließlich der Verbesserung der App-Stabilität und -Performance.</p>
-  </section>
-
-  <!-- 3 -->
+  <!-- 3 · ZWECKE & RECHTSGRUNDLAGEN -->
   <section id="s3">
-    <h2><span class="num">03</span> Kamera & Fotos</h2>
-    <div class="highlight">
-      <strong>Hinweis zu Berechtigungen:</strong> FitBattle fordert Zugriff auf deine Kamera und Fotobibliothek, um Beweisfotos für abgeschlossene Challenges aufzunehmen oder auszuwählen. Diese Funktion ist freiwillig. Fotos werden ausschließlich für den beschriebenen Zweck verwendet und auf den Servern des Dienstanbieters (Supabase) gespeichert.
-    </div>
-    <p>Die App verwendet die Berechtigungen <strong>CAMERA</strong> und <strong>READ_EXTERNAL_STORAGE</strong> (Android). Auf iOS wird der Zugriff auf Kamera und Fotobibliothek separat abgefragt. Du kannst diese Berechtigungen jederzeit in den Geräteeinstellungen widerrufen.</p>
+    <h2><span class="sn">03</span> Zwecke &amp; Rechtsgrundlagen der Verarbeitung</h2>
+    <p>Jede Datenverarbeitung in FitBattle stützt sich auf eine der folgenden Rechtsgrundlagen nach Art. 6 DSGVO. Wo die Bereitstellung von Daten verpflichtend ist, wird dies nachfolgend kenntlich gemacht (Art. 13 Abs. 2 lit. e DSGVO).</p>
+
+    <h3>a) Vertragserfüllung <span class="rg">Art. 6 Abs. 1 lit. b DSGVO</span></h3>
+    <p>Die Kernfunktionen — Kontoregistrierung, Login, Aktivitäten eintragen, Gruppen erstellen und beitreten, Challenges erstellen und abstimmen, Rangliste anzeigen — erfordern die Verarbeitung von Konto-, Aktivitäts- und Gruppeninhalten. Diese Verarbeitung ist zur Erfüllung des Nutzungsvertrags zwingend und bedarf keiner gesonderten Einwilligung. Ohne Bereitstellung dieser Pflichtdaten kann die App nicht genutzt werden.</p>
+
+    <h3>b) Einwilligung <span class="rg">Art. 6 Abs. 1 lit. a DSGVO</span></h3>
+    <p>Folgende Verarbeitungen sind vollständig freiwillig und erfolgen ausschließlich auf Basis deiner ausdrücklichen, jederzeit widerrufbaren Einwilligung:</p>
+    <ul class="pl">
+      <li><strong>Kamera- und Fotobibliothekszugriff:</strong> Profilbilder, Aktivitätsfotos und Challenge-Beweisfotos — Erlaubnis via Android-Systemaufforderung.</li>
+      <li><strong>Push-Benachrichtigungen:</strong> Benachrichtigungen über Gruppenaktivitäten — Erlaubnis via Android-Systemaufforderung.</li>
+    </ul>
+    <p>Einwilligungen kannst du jederzeit unter <em>Android-Einstellungen → Apps → FitBattle → Berechtigungen</em> widerrufen, ohne dass die Rechtmäßigkeit der bisherigen Verarbeitung berührt wird (Art. 7 Abs. 3 DSGVO).</p>
+
+    <h3>c) Berechtigte Interessen <span class="rg">Art. 6 Abs. 1 lit. f DSGVO</span></h3>
+    <p>Technische Verbindungsdaten (IP-Adresse, Gerätedaten) werden durch die Infrastrukturanbieter Supabase und Google im berechtigten Interesse des sicheren, stabilen App-Betriebs kurzfristig verarbeitet. Die Interessenabwägung ergibt: Daten werden nicht zu Nutzerprofilen zusammengeführt, sind zeitlich stark begrenzt und für den Nutzer bei normalem Datenschutzverständnis zumutbar.</p>
+
+    <h3>d) Rechtliche Verpflichtung <span class="rg">Art. 6 Abs. 1 lit. c DSGVO</span></h3>
+    <p>Daten können aufbewahrt werden, soweit eine gesetzliche Pflicht besteht (z. B. bei einer behördlichen Anordnung).</p>
   </section>
 
-  <!-- 4 -->
+  <!-- 4 · AUFTRAGSVERARBEITER -->
   <section id="s4">
-    <h2><span class="num">04</span> Drittanbieter</h2>
-    <p>Die App nutzt folgende externe Dienste, die eigene Datenschutzrichtlinien haben. Durch die Nutzung der App stimmst du auch deren Richtlinien zu:</p>
-    <ul class="provider-list">
+    <h2><span class="sn">04</span> Auftragsverarbeiter &amp; Drittanbieter</h2>
+    <p>FitBattle setzt folgende externe Dienstleister als Auftragsverarbeiter gemäß Art. 28 DSGVO ein. Mit jedem Dienstleister werden die AVV-Bedingungen (Auftragsverarbeitungsvertrag) akzeptiert bzw. abgeschlossen. Verarbeitung erfolgt ausschließlich nach Weisung und für die beschriebenen Zwecke.</p>
+
+    <ul class="plist">
       <li>
-        <div>
-          <span class="pname">Supabase</span> — Backend, Datenbank, Authentifizierung, Datei-Uploads<br>
-          <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a>
+        <div class="arr">↗</div>
+        <div style="flex:1;">
+          <div class="pname">Supabase, Inc. <span class="flag">🇺🇸 USA</span><span class="dpf-no">Kein DPF — SCC zwingend</span></div>
+          <div class="pdesc">Hauptbackend: PostgreSQL-Datenbank, Authentifizierung, Datei-Storage, Edge Functions (<code>delete-account</code>, <code>send-push</code>, <code>finalize_challenge</code>, <code>leave_group</code>, <code>add_group_points</code>, <code>complete_challenge</code>, <code>notify-vote-reminder</code>)</div>
+          <div class="plaw">Drittlandtransfer: EU-Standardvertragsklauseln (SCC 2021), Modul 2 (Controller-to-Processor) gem. Art. 46 Abs. 2 lit. c DSGVO + Supabase DPA. Supabase ist <strong>nicht</strong> im EU-US Data Privacy Framework registriert — SCC sind hier die einzige Grundlage.</div>
+          <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a> &nbsp;·&nbsp; <a href="https://supabase.com/legal/dpa" target="_blank" rel="noopener">Supabase DPA (AVV)</a>
         </div>
       </li>
       <li>
-        <div>
-          <span class="pname">Firebase / Google Cloud Messaging (FCM)</span> — Push-Benachrichtigungen<br>
-          <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a>
+        <div class="arr">↗</div>
+        <div style="flex:1;">
+          <div class="pname">Google LLC / Firebase <span class="flag">🇺🇸 USA</span><span class="dpf-yes">✓ DPF-zertifiziert</span></div>
+          <div class="pdesc">Firebase Cloud Messaging (FCM v1 API): Versand und Empfang von Push-Benachrichtigungen. Firebase Core zur App-Initialisierung.</div>
+          <div class="plaw">Drittlandtransfer: EU-US Data Privacy Framework (Angemessenheitsbeschluss gem. Art. 45 DSGVO, gültig seit 10. Juli 2023) und ergänzend EU-Standardvertragsklauseln (SCC) gem. Art. 46 Abs. 2 lit. c DSGVO.</div>
+          <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a> &nbsp;·&nbsp; <a href="https://firebase.google.com/terms/data-processing-terms" target="_blank" rel="noopener">Firebase DPA</a>
         </div>
       </li>
       <li>
-        <div>
-          <span class="pname">Google Play Services</span> — App-Distribution, Gerätedienste<br>
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+        <div class="arr">↗</div>
+        <div style="flex:1;">
+          <div class="pname">Google LLC / Google Play Services <span class="flag">🇺🇸 USA</span><span class="dpf-yes">✓ DPF-zertifiziert</span></div>
+          <div class="pdesc">App-Distribution über den Google Play Store, grundlegende Android-Gerätedienste, FCM-Token-Verwaltung auf Geräteebene.</div>
+          <div class="plaw">Drittlandtransfer: EU-US Data Privacy Framework (Angemessenheitsbeschluss gem. Art. 45 DSGVO) und ergänzend EU-Standardvertragsklauseln (SCC).</div>
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>
         </div>
       </li>
     </ul>
-  </section>
 
-  <!-- 5 -->
-  <section id="s5">
-    <h2><span class="num">05</span> Datenweitergabe an Dritte</h2>
-    <p>Deine personenbezogenen Daten werden nicht verkauft oder zu Werbezwecken weitergegeben. Eine Übermittlung an Dritte findet nur in folgenden Fällen statt:</p>
-    <ul class="plain">
-      <li>An die oben genannten Drittanbieter (Supabase, Firebase), soweit dies für den Betrieb der App technisch notwendig ist</li>
-      <li>Wenn es gesetzlich vorgeschrieben ist (z. B. auf behördliche Anordnung, Vorladung oder ähnliche rechtliche Verfahren)</li>
-      <li>Zum Schutz der Rechte, der Sicherheit oder des Eigentums des Dienstanbieters, der Nutzer oder der Öffentlichkeit</li>
-      <li>Im Rahmen anonymisierter, aggregierter Statistiken zur Verbesserung der App — ohne Rückschluss auf einzelne Personen</li>
-    </ul>
-  </section>
-
-  <!-- 6 -->
-  <section id="s6">
-    <h2><span class="num">06</span> Standortdaten</h2>
-    <p>FitBattle erhebt <strong>keine</strong> präzisen Echtzeit-Standortdaten deines Geräts. Es werden keine GPS-Koordinaten gespeichert oder verarbeitet.</p>
-  </section>
-
-  <!-- 7 -->
-  <section id="s7">
-    <h2><span class="num">07</span> Künstliche Intelligenz (KI)</h2>
-    <p>Die App verwendet <strong>keine</strong> KI-Technologien zur Verarbeitung deiner Daten oder zur Bereitstellung von Funktionen.</p>
-  </section>
-
-  <!-- 8 -->
-  <section id="s8">
-    <h2><span class="num">08</span> Datenspeicherung, -löschung & deine Rechte</h2>
-    <p>Von dir eingegebene Daten werden gespeichert, solange du die App nutzt, und darüber hinaus für einen angemessenen Zeitraum aufbewahrt. Automatisch erfasste Daten werden nach spätestens 24 Monaten gelöscht oder anonymisiert gespeichert.</p>
-
-    <div class="highlight">
-      <strong>Du möchtest deine Daten löschen?</strong> Schreibe eine E-Mail an <a href="mailto:tobau7@gmail.com" style="color:var(--green)">tobau7@gmail.com</a>. Deine Anfrage wird schnellstmöglich bearbeitet. Bitte beachte, dass bestimmte Daten für den Betrieb der App notwendig sind und nicht vollständig gelöscht werden können, solange du die App aktiv nutzt.
+    <div class="box">
+      <p><strong>Weitergabe an sonstige Dritte:</strong> Deine personenbezogenen Daten werden nicht verkauft, vermietet oder zu Werbezwecken weitergegeben. Weitergabe an weitere Dritte erfolgt nur wenn (a) du ausdrücklich eingewilligt hast, (b) es zur Vertragserfüllung erforderlich ist, oder (c) eine gesetzliche Verpflichtung besteht.</p>
     </div>
-
-    <p>Du kannst die Datenerfassung jederzeit vollständig stoppen, indem du die App deinstallierst. Verwende dazu die Standard-Deinstallationsfunktion deines Geräts oder des App-Stores.</p>
   </section>
 
-  <!-- 9 -->
+  <!-- 5 · DRITTLANDTRANSFER -->
+  <section id="s5">
+    <h2><span class="sn">05</span> Drittlandtransfers in die USA</h2>
+    <p>Alle drei eingesetzten Auftragsverarbeiter haben ihren Sitz in den <strong>USA</strong>. Für die USA besteht kein allgemeiner Angemessenheitsbeschluss. Die Übermittlung personenbezogener Daten wird durch folgende Schutzmaßnahmen abgesichert:</p>
+
+    <table class="dt">
+      <thead><tr><th>Anbieter</th><th>Schutzmechanismus</th><th>Rechtsgrundlage</th></tr></thead>
+      <tbody>
+        <tr><td>Supabase, Inc.</td><td>EU-Standardvertragsklauseln (SCC 2021, Modul 2) + Supabase DPA + Transfer Impact Assessment (TIA)</td><td>Art. 46 Abs. 2 lit. c DSGVO</td></tr>
+        <tr><td>Google LLC / Firebase</td><td>EU-US Data Privacy Framework (Angemessenheitsbeschluss) + SCC</td><td>Art. 45 DSGVO + Art. 46 Abs. 2 lit. c DSGVO</td></tr>
+        <tr><td>Google LLC / Play Services</td><td>EU-US Data Privacy Framework (Angemessenheitsbeschluss) + SCC</td><td>Art. 45 DSGVO + Art. 46 Abs. 2 lit. c DSGVO</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box">
+      <p style="font-size:13.5px;"><strong>Verbleibendes Risiko:</strong> Trotz dieser Schutzmaßnahmen können US-Behörden unter Umständen Zugriff auf in den USA gespeicherte Daten erlangen (z. B. FISA Section 702, CLOUD Act). Das EU-US Data Privacy Framework bietet EU-Bürgerinnen und -Bürgern einen Rechtsbehelf über das Data Protection Review Court (DPRC). Die Nutzung von FitBattle ist ohne diese Drittlandtransfers technisch nicht möglich, da die gesamte Backend-Infrastruktur auf den genannten US-Diensten basiert.</p>
+    </div>
+  </section>
+
+  <!-- 6 · SPEICHERDAUER -->
+  <section id="s6">
+    <h2><span class="sn">06</span> Speicherdauer &amp; Löschung</h2>
+    <table class="dt">
+      <thead><tr><th>Datenkategorie</th><th>Speicherdauer / Löschkriterium</th></tr></thead>
+      <tbody>
+        <tr><td>Kontodaten, Profil, Aktivitäten, Gruppen, Challenges</td><td>Für die gesamte Dauer des aktiven Nutzeraccounts. Bei Account-Löschung: sofortige vollständige Löschung aller Datensätze aus DB und Storage durch die Edge Function <code>delete-account</code> (nach Re-Authentifizierung).</td></tr>
+        <tr><td>Fotos (Profilbild, Aktivitäts- und Beweisfotos)</td><td>Bis zur manuellen Löschung durch den Nutzer oder bei Account-Löschung.</td></tr>
+        <tr><td>Push-Token (FCM)</td><td>Solange Push-Benachrichtigungen aktiviert sind. Entfernung beim nächsten App-Start nach Deaktivierung oder App-Deinstallation.</td></tr>
+        <tr><td>Technische Verbindungsdaten (Logs)</td><td>Gemäß der Datenschutzrichtlinie der jeweiligen Infrastrukturanbieter — typischerweise 30–90 Tage auf Anbieterseite.</td></tr>
+        <tr><td>Spracheinstellung (lokal)</td><td>Bis zur App-Deinstallation oder manuellen Löschung der App-Daten auf dem Gerät.</td></tr>
+      </tbody>
+    </table>
+    <h3>Account und alle Daten löschen</h3>
+    <p>Du kannst deinen Account jederzeit direkt in der App löschen (<em>Profil → Account löschen</em>). Nach Re-Authentifizierung werden alle personenbezogenen Daten sofort und vollständig gelöscht. Alternativ genügt eine E-Mail an <a href="mailto:tobau7@gmail.com">tobau7@gmail.com</a> — Löschanfragen werden innerhalb von einem Monat bearbeitet (Art. 12 Abs. 3 DSGVO).</p>
+  </section>
+
+  <!-- 7 · BETROFFENENRECHTE -->
+  <section id="s7">
+    <h2><span class="sn">07</span> Deine Rechte als betroffene Person</h2>
+    <p>Du hast gegenüber dem Verantwortlichen folgende Rechte nach DSGVO. Richte Anfragen an <a href="mailto:tobau7@gmail.com">tobau7@gmail.com</a>. Antwortfrist: grundsätzlich 1 Monat, bei Komplexität verlängerbar um 2 weitere Monate (Art. 12 Abs. 3 DSGVO). Die Auskunft ist unentgeltlich.</p>
+    <div class="rg-grid">
+      <div class="rc"><div class="rt"><span>🔍</span> Auskunft <span class="ra">Art. 15</span></div><p>Auskunft, ob und welche personenbezogenen Daten verarbeitet werden, inkl. Kopie dieser Daten.</p></div>
+      <div class="rc"><div class="rt"><span>✏️</span> Berichtigung <span class="ra">Art. 16</span></div><p>Korrektur unrichtiger oder unvollständiger Daten. Benutzername und E-Mail kannst du direkt in der App ändern.</p></div>
+      <div class="rc"><div class="rt"><span>🗑️</span> Löschung <span class="ra">Art. 17</span></div><p>Löschung deiner Daten, wenn kein Verarbeitungsgrund mehr besteht. Direkt in der App über Account-Löschung möglich.</p></div>
+      <div class="rc"><div class="rt"><span>⏸️</span> Einschränkung <span class="ra">Art. 18</span></div><p>Einschränkung der Verarbeitung, z. B. wenn die Richtigkeit der Daten bestritten wird oder Widerspruch eingelegt wurde.</p></div>
+      <div class="rc"><div class="rt"><span>📦</span> Datenübertragbarkeit <span class="ra">Art. 20</span></div><p>Erhalt deiner Daten in einem strukturierten, maschinenlesbaren Format (gilt für Verarbeitungen auf Basis Einwilligung oder Vertrag).</p></div>
+      <div class="rc"><div class="rt"><span>🚫</span> Widerspruch <span class="ra">Art. 21</span></div><p>Widerspruch gegen Verarbeitungen auf Basis berechtigter Interessen (Art. 6 Abs. 1 lit. f). Verarbeitung wird dann eingestellt, sofern keine zwingenden schutzwürdigen Gründe überwiegen.</p></div>
+      <div class="rc"><div class="rt"><span>↩️</span> Widerruf <span class="ra">Art. 7 Abs. 3</span></div><p>Einwilligungen (Kamera, Push) jederzeit widerrufbar mit Wirkung für die Zukunft — ohne Nachteile für dich.</p></div>
+      <div class="rc"><div class="rt"><span>📋</span> Beschwerde <span class="ra">Art. 77</span></div><p>Das Recht, sich jederzeit bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Details in Abschnitt 14).</p></div>
+    </div>
+  </section>
+
+  <!-- 8 · TOM -->
+  <section id="s8">
+    <h2><span class="sn">08</span> Technische &amp; organisatorische Maßnahmen (TOM)</h2>
+    <p>Gemäß Art. 32 DSGVO werden dem Risiko angemessene Maßnahmen zum Schutz personenbezogener Daten eingesetzt:</p>
+    <ul class="pl">
+      <li><strong>Transportverschlüsselung:</strong> Alle Verbindungen zwischen App und Backend erfolgen ausschließlich über TLS 1.2+/HTTPS — Daten werden nie unverschlüsselt übertragen.</li>
+      <li><strong>Passwortsicherheit:</strong> Passwörter werden durch Supabase Auth mittels bcrypt gehasht und nie im Klartext gespeichert oder übertragen. Passwort-Reset erfolgt über signierte Magic-Links.</li>
+      <li><strong>Zugriffssteuerung (Row Level Security):</strong> Supabase RLS stellt sicher, dass Nutzer ausschließlich auf ihre eigenen Daten zugreifen können. Gruppeninhalte sind nur für verifizierte Mitglieder der jeweiligen Gruppe sichtbar.</li>
+      <li><strong>Datensparsamkeit (Privacy by Design, Art. 25 DSGVO):</strong> Es werden nur Daten erhoben, die für den jeweiligen Funktionszweck unmittelbar erforderlich sind.</li>
+      <li><strong>Vollständige Account-Löschung:</strong> Die serverseitige Edge Function <code>delete-account</code> löscht nach Re-Authentifizierung alle personenbezogenen Daten vollständig aus Datenbank und Storage.</li>
+      <li><strong>Kein Analytics-Tracking:</strong> FitBattle setzt keine Analytics-Tools, Tracking-Pixel oder Werbetechnologien ein — § 25 TDDDG ist damit für FitBattle nicht anwendbar (keine Cookies, kein Endgeräte-Tracking durch FitBattle selbst).</li>
+    </ul>
+    <p>Die Infrastrukturanbieter Supabase (SOC 2 Type II) und Google (ISO 27001, SOC 2/3) unterhalten eigene zertifizierte Sicherheitsprogramme. Ein vollständiger Schutz vor allen Angriffsszenarien kann nicht garantiert werden. Im Fall einer Datenpanne wird die zuständige Aufsichtsbehörde innerhalb von 72 Stunden gemäß Art. 33 DSGVO informiert; bei hohem Risiko werden betroffene Nutzerinnen und Nutzer gemäß Art. 34 DSGVO unverzüglich benachrichtigt.</p>
+  </section>
+
+  <!-- 9 · PUSH -->
   <section id="s9">
-    <h2><span class="num">09</span> Kinderschutz</h2>
-    <p>FitBattle richtet sich nicht an Kinder unter 13 Jahren. Der Dienstanbieter erhebt wissentlich keine personenbezogenen Daten von Kindern unter 13 Jahren und vermarktet die App nicht an diese Zielgruppe.</p>
-    <p>Sollte der Dienstanbieter feststellen, dass ein Kind unter 13 Jahren personenbezogene Daten übermittelt hat, werden diese unverzüglich von den Servern gelöscht. Eltern oder Erziehungsberechtigte, die Kenntnis davon haben, dass ihr Kind solche Daten bereitgestellt hat, werden gebeten, sich unter <a href="mailto:tobau7@gmail.com" style="color:var(--green)">tobau7@gmail.com</a> zu melden.</p>
+    <h2><span class="sn">09</span> Push-Benachrichtigungen</h2>
+    <p>Mit deiner Einwilligung <span class="rg">Art. 6 Abs. 1 lit. a DSGVO</span> wird ein anonymer Gerätetoken (FCM-Token) durch Google Firebase generiert und in der Supabase-Datenbank (Tabelle <code>device_tokens</code>) gespeichert. Dieser Token ermöglicht die Zustellung folgender Benachrichtigungen:</p>
+    <ul class="pl">
+      <li>Neue Challenge in deiner Gruppe wurde erstellt</li>
+      <li>Ein Gruppenmitglied hat dich in der Rangliste überholt</li>
+      <li>Erinnerung: Abstimmungsfrist einer Challenge läuft bald ab (automatischer Cron-Job alle 5 Minuten)</li>
+      <li>Neue Aktivität eines Gruppenmitglieds (automatischer Datenbank-Webhook)</li>
+    </ul>
+    <p>Versand erfolgt über die Supabase Edge Functions <code>send-push</code>, <code>dynamic-responder</code> und <code>notify-vote-reminder</code> via Google FCM v1 API (OAuth2). Google verarbeitet dabei FCM-Token und Nachrichteninhalte gemäß seinen eigenen Datenschutzbestimmungen (Abschnitt 4).</p>
+    <p><strong>Widerruf:</strong> Du kannst Push-Benachrichtigungen jederzeit unter <em>Android-Einstellungen → Apps → FitBattle → Benachrichtigungen</em> deaktivieren. Der FCM-Token wird dann beim nächsten App-Start aus der Datenbank entfernt.</p>
   </section>
 
-  <!-- 10 -->
+  <!-- 10 · KAMERA -->
   <section id="s10">
-    <h2><span class="num">10</span> Datensicherheit</h2>
-    <p>Der Dienstanbieter setzt angemessene technische und organisatorische Maßnahmen ein, um deine Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen. Der Zugriff auf personenbezogene Daten ist auf autorisierte Mitarbeiter und Dienstleister beschränkt, die diese Informationen für den Betrieb und die Weiterentwicklung der App benötigen.</p>
-    <p>Bitte beachte, dass kein Sicherheitssystem einen vollständigen Schutz vor allen möglichen Sicherheitsvorfällen gewährleisten kann.</p>
+    <h2><span class="sn">10</span> Kamera &amp; Fotos (App-Berechtigungen)</h2>
+    <p>FitBattle fordert Zugriff auf Kamera und Fotobibliothek (Android: <code>CAMERA</code>, <code>READ_MEDIA_IMAGES</code>) ausschließlich für folgende, vollständig freiwillige Zwecke <span class="rg">Art. 6 Abs. 1 lit. a DSGVO</span>:</p>
+    <ul class="pl">
+      <li>Aufnahme oder Auswahl eines optionalen Profilbilds</li>
+      <li>Aufnahme eines Fotos als Nachweis für eine abgeschlossene Challenge</li>
+      <li>Optionales Hinzufügen eines Fotos zu einer eingetragenen Aktivität</li>
+    </ul>
+    <p>Hochgeladene Bilder werden in Supabase Storage in den Buckets <code>avatars</code> und <code>activity-images</code> gespeichert. Profilbilder sind für andere App-Nutzer sichtbar. Aktivitäts- und Beweisfotos sind auf Mitglieder der jeweiligen Gruppe beschränkt. Fotos werden nicht zu Werbezwecken weitergegeben, nicht zur Gesichtserkennung und nicht für KI-Analysen genutzt.</p>
+    <p><strong>Widerruf &amp; Löschung:</strong> Kameraberechtigung jederzeit unter Android-Einstellungen entziehbar. Bereits hochgeladene Fotos kannst du in der App löschen oder durch Account-Löschung vollständig entfernen.</p>
   </section>
 
-  <!-- 11 -->
+  <!-- 11 · PROFILING -->
   <section id="s11">
-    <h2><span class="num">11</span> Änderungen dieser Datenschutzerklärung</h2>
-    <p>Diese Datenschutzerklärung kann von Zeit zu Zeit aktualisiert werden. Änderungen werden auf dieser Seite veröffentlicht und treten mit ihrer Veröffentlichung in Kraft. Wir empfehlen, diese Seite regelmäßig zu besuchen. Die fortgesetzte Nutzung der App nach einer Änderung gilt als Zustimmung zur aktualisierten Erklärung.</p>
+    <h2><span class="sn">11</span> Automatisierte Entscheidungen &amp; Profiling</h2>
+    <p>FitBattle trifft keine automatisierten Entscheidungen mit rechtlicher oder anderweitig erheblicher Wirkung im Sinne von Art. 22 DSGVO. Die Ranglistenberechnung erfolgt rein algorithmisch auf Basis der von dir selbst eingetragenen Aktivitäten und hat ausschließlich spielerischen Charakter innerhalb deiner Gruppe.</p>
+    <p>Es findet kein verhaltensbasiertes Profiling, kein interessenbasiertes Targeting und keine automatisierte Entscheidungsfindung mit Auswirkungen auf rechtlich relevante Sachverhalte statt.</p>
   </section>
 
-  <!-- 12 -->
+  <!-- 12 · KINDER -->
   <section id="s12">
-    <h2><span class="num">12</span> Kontakt</h2>
-    <p>Bei Fragen zum Datenschutz oder zu deinen Daten erreichst du den Dienstanbieter unter:</p>
-    <div class="contact-card">
-      <div class="contact-avatar">👤</div>
+    <h2><span class="sn">12</span> Kinder- und Jugendschutz</h2>
+    <p>FitBattle richtet sich an Nutzerinnen und Nutzer ab <strong>16 Jahren</strong>. Gemäß Art. 8 DSGVO (in Deutschland: 16 Jahre) ist für die Datenverarbeitung von Personen unter 16 Jahren die Einwilligung eines Erziehungsberechtigten erforderlich.</p>
+    <p>Sollte bekannt werden, dass Daten einer Person unter 16 Jahren ohne gültige elterliche Einwilligung verarbeitet wurden, werden diese Daten unverzüglich gelöscht. Hinweise bitte an <a href="mailto:tobau7@gmail.com">tobau7@gmail.com</a>.</p>
+  </section>
+
+  <!-- 13 · ÄNDERUNGEN -->
+  <section id="s13">
+    <h2><span class="sn">13</span> Änderungen dieser Datenschutzerklärung</h2>
+    <p>Diese Datenschutzerklärung kann bei wesentlichen Änderungen der App-Funktionen, der eingesetzten Dienste oder der gesetzlichen Anforderungen aktualisiert werden. Das Datum der letzten Aktualisierung ist im Header dieser Seite vermerkt.</p>
+    <p>Bei wesentlichen Änderungen wirst du durch eine Benachrichtigung in der App oder per E-Mail informiert. Geringfügige Anpassungen (z. B. redaktionelle Korrekturen) werden ohne gesonderte Benachrichtigung vorgenommen.</p>
+  </section>
+
+  <!-- 14 · KONTAKT & BEHÖRDEN -->
+  <section id="s14">
+    <h2><span class="sn">14</span> Kontakt, Beschwerderecht &amp; Aufsichtsbehörden</h2>
+    <p>Für alle Fragen zum Datenschutz und zur Ausübung deiner Rechte (Auskunft, Löschung, Berichtigung, Widerspruch, Datenübertragbarkeit) wende dich an:</p>
+    <div class="ccard">
+      <div class="cav">👤</div>
       <div>
         <h3>Tom Baumann</h3>
+        <div class="role">Verantwortlicher · FitBattle (com.baumann.fitbattle)</div>
         <a href="mailto:tobau7@gmail.com">tobau7@gmail.com</a>
       </div>
     </div>
+
+    <h3>Beschwerderecht bei der Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO)</h3>
+    <p>Du hast das Recht, dich jederzeit bei einer Datenschutz-Aufsichtsbehörde zu beschweren — insbesondere in dem EU-Mitgliedstaat, in dem du deinen gewöhnlichen Aufenthaltsort oder Arbeitsort hast oder in dem der mutmaßliche Verstoß stattgefunden hat.</p>
+    <p>Zuständige Behörde nach Bundesland des Verantwortlichen (nach Eintragung der Adresse in Abschnitt 1 zu bestimmen):</p>
+
+    <table class="dt">
+      <thead><tr><th>Bundesland</th><th>Behörde</th><th>Website</th></tr></thead>
+      <tbody>
+        <tr><td>Bayern</td><td>Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)</td><td><a href="https://www.lda.bayern.de" target="_blank" rel="noopener">lda.bayern.de</a></td></tr>
+        <tr><td>Baden-Württemberg</td><td>LfDI Baden-Württemberg</td><td><a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank" rel="noopener">datenschutz.bwl.de</a></td></tr>
+        <tr><td>Berlin</td><td>Berliner Beauftragte für Datenschutz (BlnBDI)</td><td><a href="https://www.datenschutz-berlin.de" target="_blank" rel="noopener">datenschutz-berlin.de</a></td></tr>
+        <tr><td>NRW</td><td>Landesbeauftragte für Datenschutz NRW (LDI NRW)</td><td><a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">ldi.nrw.de</a></td></tr>
+        <tr><td>Hamburg</td><td>Hamburgischer Beauftragter für Datenschutz (HmbBfDI)</td><td><a href="https://www.datenschutz.hamburg.de" target="_blank" rel="noopener">datenschutz.hamburg.de</a></td></tr>
+        <tr><td>Hessen</td><td>Hessischer Beauftragter für Datenschutz (HBDI)</td><td><a href="https://datenschutz.hessen.de" target="_blank" rel="noopener">datenschutz.hessen.de</a></td></tr>
+        <tr><td>Alle anderen Bundesländer</td><td colspan="2">→ <a href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" target="_blank" rel="noopener">Vollständiges Behördenverzeichnis beim BfDI</a></td></tr>
+      </tbody>
+    </table>
+    <p>Nutzerinnen und Nutzer können sich auch an die Behörde ihres eigenen Wohnorts wenden (Art. 77 Abs. 1 DSGVO).</p>
   </section>
 
 </div>
 
 <footer>
-  <strong>FitBattle</strong> · Datenschutzerklärung · Gültig ab 22. Mai 2026<br>
-  Entwickelt von Tom Baumann · <a href="mailto:tobau7@gmail.com" style="color:var(--green)">tobau7@gmail.com</a>
+  <strong>FitBattle</strong> &nbsp;·&nbsp; Datenschutzerklärung &nbsp;·&nbsp; Stand: 29. Mai 2026<br>
+  Verantwortlicher: Tom Baumann &nbsp;·&nbsp; <a href="mailto:tobau7@gmail.com" style="color:var(--green)">tobau7@gmail.com</a><br>
+  com.baumann.fitbattle &nbsp;·&nbsp; Rechtsstand: DSGVO · BDSG · <strong>DDG (§ 5)</strong> · <strong>TDDDG (§ 25)</strong>
+  <div class="disc">
+    Entwurf erstellt auf Basis der zum 29. Mai 2026 geltenden Rechtslage. Keine Rechtsberatung im Sinne des RDG. Vor Veröffentlichung wird die Prüfung durch einen zugelassenen Fachanwalt für IT-Recht / Datenschutzrecht empfohlen.
+  </div>
 </footer>
 
 </body>
